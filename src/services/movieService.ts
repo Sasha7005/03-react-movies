@@ -4,7 +4,7 @@ import type { Movie } from "../types/movie";
 interface MovieHttpResponse {
   results: Movie[];
 }
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = import.meta.env.VITE_TMDB_TOKEN;
 
 const axiosInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
