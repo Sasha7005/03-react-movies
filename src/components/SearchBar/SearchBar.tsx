@@ -9,14 +9,14 @@ export default function SearchBar({ onSubmit }: SearchBarProps) {
   function handlerSubmit(formData: FormData): void {
     const query = formData.get("query") as string;
 
-    if (query.trim() === "") {
+    if (query === "") {
       toast.error("Please enter your search query.", {
         duration: 4000,
         position: "top-center",
       });
       return;
     }
-    onSubmit(query.trim());
+    onSubmit(query);
   }
 
   return (
@@ -31,7 +31,7 @@ export default function SearchBar({ onSubmit }: SearchBarProps) {
           Powered by TMDB
         </a>
 
-        <form className={styles.form}>
+        <form className={styles.form} action={handlerSubmit}>
           <input
             className={styles.input}
             type="text"
